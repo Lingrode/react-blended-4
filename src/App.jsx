@@ -3,29 +3,29 @@ import Container from './components/Container/Container';
 import Header from './components/Header/Header';
 import Section from './components/Section/Section';
 import Text from './components/Text/Text';
-import Grid from './components/Grid/Grid';
 import TodoList from './components/TodoList/TodoList';
 import Form from './components/Form/Form';
 import Filter from './components/Filter/Filter';
-import { selectList } from './redux/slices/selectors';
+import { selectCurrentTodo, selectList } from './redux/slices/selectors';
+import EditForm from './components/EditForm/EditForm';
 
 export const App = () => {
   const list = useSelector(selectList);
+  const isEdit = useSelector(selectCurrentTodo);
 
   return (
     <>
       <Header />
       <Section>
         <Container>
-          <Form />
+          {!isEdit ? <Form /> : <EditForm />}
           <Filter />
-          <Grid>
-            {list.length === 0 ? (
-              <Text textAlign="center">Create your first todo😉</Text>
-            ) : (
-              <TodoList />
-            )}
-          </Grid>
+
+          {list.length === 0 ? (
+            <Text textAlign="center">Create your first todo😉</Text>
+          ) : (
+            <TodoList />
+          )}
         </Container>
       </Section>
     </>
