@@ -8,12 +8,12 @@ const TodoList = () => {
 
   return (
     <>
-      {list.lenght === 0 ? (
+      {list.length === 0 ? (
         <Text textAlign="center">We did not find any todo😯</Text>
       ) : (
         list.map((item, idx) => (
           <GridItem key={item.id}>
-            <Todo id={item.id} number={idx} text={item.text} />
+            <Todo id={item.id} counter={idx} text={item.text} />
           </GridItem>
         ))
       )}

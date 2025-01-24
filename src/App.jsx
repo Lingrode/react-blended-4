@@ -13,7 +13,7 @@ export const App = () => {
       <Section>
         <Container>
           <Form />
-          <Text textAlign="center">Create your first todo😉</Text>
+          {/* <Text textAlign="center">Create your first todo😉</Text> */}
           <Grid>
             <TodoList />
           </Grid>
